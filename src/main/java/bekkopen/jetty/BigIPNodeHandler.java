@@ -1,6 +1,6 @@
 package bekkopen.jetty;
 
-import org.eclipse.jetty.server.HttpConnection;
+import org.eclipse.jetty.server.AbstractHttpConnection;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
@@ -55,7 +55,7 @@ public class BigIPNodeHandler extends AbstractHandler {
         out.println(available ? "online" : "offline");
         out.close();
 
-        HttpConnection.getCurrentConnection().getRequest().setHandled(true);
+        AbstractHttpConnection.getCurrentConnection().getRequest().setHandled(true);
     }
 
     public static String check(int port) {
